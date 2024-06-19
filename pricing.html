@@ -84,4 +84,68 @@
         <div class="form-group">
             <label for="debrisRemovalFee">Debris Removal Fee:</label>
             <input type="number" id="debrisRemovalFee">
-       
+        </div>
+        <div class="form-group">
+            <label for="roomChoiceFee">Room of Choice Delivery Fee:</label>
+            <input type="number" id="roomChoiceFee">
+        </div>
+        <div class="form-group">
+            <label for="timeThreshold">Time Threshold (hours):</label>
+            <input type="number" id="timeThreshold">
+        </div>
+        <div class="form-group">
+            <label for="timeFee">Time Fee (per hour per person):</label>
+            <input type="number" id="timeFee">
+        </div>
+        <button onclick="savePricingSettings()">Save Settings</button>
+        <a href="index.html" class="link">Back to Calculator</a>
+    </div>
+    <script>
+        function loadPricingSettings() {
+            const settings = JSON.parse(localStorage.getItem('pricingSettings')) || {
+                baseFee: 50,
+                weightFee: 0.10,
+                distanceFee: 2.00,
+                unpackingFee: 25,
+                assemblyFee: 50,
+                installationFee: 75,
+                debrisRemovalFee: 20,
+                roomChoiceFee: 30,
+                timeThreshold: 2,
+                timeFee: 25
+            };
+
+            document.getElementById('baseFee').value = settings.baseFee;
+            document.getElementById('weightFee').value = settings.weightFee;
+            document.getElementById('distanceFee').value = settings.distanceFee;
+            document.getElementById('unpackingFee').value = settings.unpackingFee;
+            document.getElementById('assemblyFee').value = settings.assemblyFee;
+            document.getElementById('installationFee').value = settings.installationFee;
+            document.getElementById('debrisRemovalFee').value = settings.debrisRemovalFee;
+            document.getElementById('roomChoiceFee').value = settings.roomChoiceFee;
+            document.getElementById('timeThreshold').value = settings.timeThreshold;
+            document.getElementById('timeFee').value = settings.timeFee;
+        }
+
+        function savePricingSettings() {
+            const settings = {
+                baseFee: parseFloat(document.getElementById('baseFee').value),
+                weightFee: parseFloat(document.getElementById('weightFee').value),
+                distanceFee: parseFloat(document.getElementById('distanceFee').value),
+                unpackingFee: parseFloat(document.getElementById('unpackingFee').value),
+                assemblyFee: parseFloat(document.getElementById('assemblyFee').value),
+                installationFee: parseFloat(document.getElementById('installationFee').value),
+                debrisRemovalFee: parseFloat(document.getElementById('debrisRemovalFee').value),
+                roomChoiceFee: parseFloat(document.getElementById('roomChoiceFee').value),
+                timeThreshold: parseFloat(document.getElementById('timeThreshold').value),
+                timeFee: parseFloat(document.getElementById('timeFee').value)
+            };
+
+            localStorage.setItem('pricingSettings', JSON.stringify(settings));
+            alert('Pricing settings saved successfully!');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPricingSettings);
+    </script>
+</body>
+</html>
