@@ -6,54 +6,73 @@
     <title>White-Glove Delivery Pricing Calculator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
             background: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
         input[type="number"], select {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             box-sizing: border-box;
+            font-size: 16px;
         }
         button {
-            padding: 10px 15px;
-            background: #007bff;
+            padding: 15px 20px;
+            background: #28a745;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 18px;
+            width: 100%;
         }
         button:hover {
-            background: #0056b3;
+            background: #218838;
         }
         .result {
             margin-top: 20px;
-            padding: 10px;
+            padding: 15px;
             background: #e9ecef;
             border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+        .link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>White-Glove Delivery Pricing Calculator</h1>
-        <a href="pricing-settings.html">Edit Pricing Settings</a>
+        <h1 style="text-align: center;">White-Glove Delivery Pricing Calculator</h1>
+        <a href="pricing-settings.html" class="link">Edit Pricing Settings</a>
         
         <div class="form-group">
             <label for="weight">Weight (lbs):</label>
@@ -99,7 +118,7 @@
             <input type="number" id="hours" placeholder="Enter total labor hours">
         </div>
         <button onclick="calculatePrice()">Calculate</button>
-        <div class="result" id="result"></div>
+        <div class="result" id="result">Total Cost: $0.00</div>
     </div>
     <script>
         function getPricingSettings() {
