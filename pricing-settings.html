@@ -56,10 +56,6 @@
             <input type="number" id="weightFee" value="0.10" step="0.01">
         </div>
         <div class="form-group">
-            <label for="distanceFee">Distance Fee (per mile):</label>
-            <input type="number" id="distanceFee" value="2.00" step="0.01">
-        </div>
-        <div class="form-group">
             <label for="unpackingFee">Unpacking Fee:</label>
             <input type="number" id="unpackingFee" value="25">
         </div>
@@ -93,7 +89,6 @@
         function saveSettings() {
             localStorage.setItem('baseFee', document.getElementById('baseFee').value);
             localStorage.setItem('weightFee', document.getElementById('weightFee').value);
-            localStorage.setItem('distanceFee', document.getElementById('distanceFee').value);
             localStorage.setItem('unpackingFee', document.getElementById('unpackingFee').value);
             localStorage.setItem('assemblyFee', document.getElementById('assemblyFee').value);
             localStorage.setItem('installationFee', document.getElementById('installationFee').value);
@@ -107,7 +102,6 @@
         // Load the current settings into the form
         document.getElementById('baseFee').value = localStorage.getItem('baseFee') || 50;
         document.getElementById('weightFee').value = localStorage.getItem('weightFee') || 0.10;
-        document.getElementById('distanceFee').value = localStorage.getItem('distanceFee') || 2.00;
         document.getElementById('unpackingFee').value = localStorage.getItem('unpackingFee') || 25;
         document.getElementById('assemblyFee').value = localStorage.getItem('assemblyFee') || 50;
         document.getElementById('installationFee').value = localStorage.getItem('installationFee') || 75;
