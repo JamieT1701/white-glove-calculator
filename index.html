@@ -60,10 +60,6 @@
             <input type="number" id="weight" placeholder="Enter weight in pounds">
         </div>
         <div class="form-group">
-            <label for="distance">Distance (miles):</label>
-            <input type="number" id="distance" placeholder="Enter distance in miles">
-        </div>
-        <div class="form-group">
             <label for="unpacking">Unpacking:</label>
             <select id="unpacking">
                 <option value="No">No</option>
@@ -110,7 +106,6 @@
             return {
                 baseFee: parseFloat(localStorage.getItem('baseFee')) || 50,
                 weightFee: parseFloat(localStorage.getItem('weightFee')) || 0.10,
-                distanceFee: parseFloat(localStorage.getItem('distanceFee')) || 2.00,
                 unpackingFee: parseFloat(localStorage.getItem('unpackingFee')) || 25,
                 assemblyFee: parseFloat(localStorage.getItem('assemblyFee')) || 50,
                 installationFee: parseFloat(localStorage.getItem('installationFee')) || 75,
@@ -124,7 +119,6 @@
         function calculatePrice() {
             const settings = getPricingSettings();
             const weight = parseFloat(document.getElementById('weight').value) || 0;
-            const distance = parseFloat(document.getElementById('distance').value) || 0;
             const unpacking = document.getElementById('unpacking').value === 'Yes' ? settings.unpackingFee : 0;
             const assembly = document.getElementById('assembly').value === 'Yes' ? settings.assemblyFee : 0;
             const installation = document.getElementById('installation').value === 'Yes' ? settings.installationFee : 0;
@@ -133,7 +127,7 @@
             const laborHours = parseFloat(document.getElementById('hours').value) || 0;
             const extraTimeFee = laborHours > settings.timeThreshold ? (laborHours - settings.timeThreshold) * settings.timeFee : 0;
 
-            const totalCost = settings.baseFee + (weight * settings.weightFee) + (distance * settings.distanceFee) +
+            const totalCost = settings.baseFee + (weight * settings.weightFee) +
                             unpacking + assembly + installation + debrisRemoval + roomChoice +
                             extraTimeFee;
 
