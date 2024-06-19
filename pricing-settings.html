@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Pricing Settings</h1>
+        <div class="form-group">
+            <label for="baseFee">Base Fee:</label>
+            <input type="number" id="baseFee" value="50">
+        </div>
+        <div class="form-group">
+            <label for="weightFee">Weight Fee (per lb):</label>
+            <input type="number" id="weightFee" value="0.10" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="distanceFee">Distance Fee (per mile):</label>
+            <input type="number" id="distanceFee" value="2.00" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="unpackingFee">Unpacking Fee:</label>
+            <input type="number" id="unpackingFee" value="25">
+        </div>
+        <div class="form-group">
+            <label for="assemblyFee">Assembly Fee:</label>
+            <input type="number" id="assemblyFee" value="50">
+        </div>
+        <div class="form-group">
+            <label for="installationFee">Installation Fee:</label>
+            <input type="number" id="installationFee" value="75">
+        </div>
+        <div class="form-group">
+            <label for="debrisRemovalFee">Debris Removal Fee:</label>
+            <input type="number" id="debrisRemovalFee" value="20">
+        </div>
+        <div class="form-group">
+            <label for="roomChoiceFee">Room of Choice Delivery Fee:</label>
+            <input type="number" id="roomChoiceFee" value="30">
+        </div>
+        <div class="form-group">
+            <label for="timeThreshold">Time Threshold (hours):</label>
+            <input type="number" id="timeThreshold" value="2">
+        </div>
+        <div class="form-group">
+            <label for="timeFee">Time Fee (per hour per person):</label>
+            <input type="number" id="timeFee" value="25">
+        </div>
+        <button onclick="saveSettings()">Save Settings</button>
+    </div>
+    <script>
+        function saveSettings() {
+            localStorage.setItem('baseFee', document.getElementById('baseFee').value);
+            localStorage.setItem('weightFee', document.getElementById('weightFee').value);
+            localStorage.setItem('distanceFee', document.getElementById('distanceFee').value);
+            localStorage.setItem('unpackingFee', document.getElementById('unpackingFee').value);
+            localStorage.setItem('assemblyFee', document.getElementById('assemblyFee').value);
+            localStorage.setItem('installationFee', document.getElementById('installationFee').value);
+            localStorage.setItem('debrisRemovalFee', document.getElementById('debrisRemovalFee').value);
+            localStorage.setItem('roomChoiceFee', document.getElementById('roomChoiceFee').value);
+            localStorage.setItem('timeThreshold', document.getElementById('timeThreshold').value);
+            localStorage.setItem('timeFee', document.getElementById('timeFee').value);
+            alert('Settings saved!');
+        }
+
+        // Load the current settings into the form
+        document.getElementById('baseFee').value = localStorage.getItem('baseFee') || 50;
+        document.getElementById('weightFee').value = localStorage.getItem('weightFee') || 0.10;
+        document.getElementById('distanceFee').value = localStorage.getItem('distanceFee') || 2.00;
+        document.getElementById('unpackingFee').value = localStorage.getItem('unpackingFee') || 25;
+        document.getElementById('assemblyFee').value = localStorage.getItem('assemblyFee') || 50;
+        document.getElementById('installationFee').value = localStorage.getItem('installationFee') || 75;
+        document.getElementById('debrisRemovalFee').value = localStorage.getItem('debrisRemovalFee') || 20;
+        document.getElementById('roomChoiceFee').value = localStorage.getItem('roomChoiceFee') || 30;
+        document.getElementById('timeThreshold').value = localStorage.getItem('timeThreshold') || 2;
+        document.getElementById('timeFee').value = localStorage.getItem('timeFee') || 25;
+    </script>
+</body>
+</html>
